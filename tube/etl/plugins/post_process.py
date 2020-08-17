@@ -25,6 +25,7 @@ def add_auth_resource_path(df):
             df[1]["auth_resource_path"] = ""
 
         print("ABSOLUTE LUCA")
+        # test commit for quay.io trigger
         print(df[1]["auth_resource_path"])
 
     return df[0], df[1]
