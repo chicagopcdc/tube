@@ -120,6 +120,13 @@ class Writer(SparkBase):
         :param types:
         :return:
         """
+        print("LUCA TUBE")
+        for x in df.collect():
+            print (x)
+        print("space --")
+        print(index)
+        print(types)
+        print(doc_type)
         try:
             for plugin in post_process_plugins:
                 df = df.map(lambda x: plugin(x))
