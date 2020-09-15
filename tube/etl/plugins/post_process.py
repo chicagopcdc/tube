@@ -9,7 +9,11 @@ def add_auth_resource_path(df):
         project_id = df[1]["project_id"]
 
         # TODO check case with list?? make sure it is from the correct node - maybe add a node_type field? check during ETL?
-        subject_id = "/inrgs/{}".format(df[1]["submitter_id"]) 
+        subject_id = ""
+        if "person_submitter_id" in df[1]:
+            subject_id += "/persons/{}".format(df[1]["person_submitter_id"])
+            if "submitter_id" in df[1]:
+                subject_id += "/subjects/{}".format(df[1]["submitter_id"]) 
 
         if project_id is not None:
             if isinstance(project_id, list):
