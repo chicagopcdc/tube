@@ -179,7 +179,7 @@ class Translator(BaseTranslator):
                 )
                 child_by_root = child_by_root.mapValues(
                     lambda x: {
-                        k: v for (k, v) in list(x.items()) if k != sorting_prop.id
+                        k: v for (k, v) in list(x.items()) # if k != sorting_prop.id
                     }
                 )
             root_df = root_df.leftOuterJoin(child_by_root).mapValues(
