@@ -12,8 +12,8 @@ def add_auth_resource_path(df):
         subject_id = ""
         if "person_submitter_id" in df[1]:
             subject_id += "/persons/{}".format(df[1]["person_submitter_id"])
-            if "submitter_id" in df[1]:
-                subject_id += "/subjects/{}".format(df[1]["submitter_id"]) 
+            if "subject_submitter_id" in df[1]:
+                subject_id += "/subjects/{}".format(df[1]["subject_submitter_id"]) 
 
         if project_id is not None:
             if isinstance(project_id, list):
