@@ -154,7 +154,9 @@ class Versioning(object):
         return versioned_index_name
 
     def create_new_index(self, mapping, versioned_index_name):
-        self.es.indices.create(index=versioned_index_name, body=mapping)
+        request_body = {"settings" : {"number_of_shards": 1, "number_of_replicas": 1}}
+        request_body.update(mapping)
+        self.es.indices.create(index=versioned_index_name, body=request_body)
         return versioned_index_name
 
     def putting_new_version_tag(self, index_to_write, index_name):
